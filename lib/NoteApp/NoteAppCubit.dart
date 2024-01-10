@@ -68,9 +68,7 @@ class _NoteAppState extends State<NoteApp> {
           return Center(
             child: Text("${state.message.toString()}"),);
         }
-        else{
           return Container();
-        }
 
       }
       ),

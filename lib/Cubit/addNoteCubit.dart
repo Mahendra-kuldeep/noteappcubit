@@ -15,11 +15,13 @@ class NoteCubit extends Cubit<NoteState> {
       final notes = await dbHelper.getData();
       emit(loadedState(notelist: notes));
     }
+    else{
+      emit(errorState(message: "an error"));
+    }
   }
 
   getallnotes() async {
     emit(loadingState());
-
     var notes = await dbHelper.getData();
     emit(loadedState(notelist: notes));
   }
@@ -32,6 +34,9 @@ class NoteCubit extends Cubit<NoteState> {
     if (check) {
       final notes = await dbHelper.getData();
       emit(loadedState(notelist: notes));
+    }
+    else{
+      emit(errorState(message: "an erroe"));
     }
   }
   Future<void>updatenotes(int id,String title,String desc)async{

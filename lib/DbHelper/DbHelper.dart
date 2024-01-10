@@ -28,7 +28,7 @@ class DbHelper{
     Directory directory = await getApplicationDocumentsDirectory();
     var dbpath = join(directory.path+"opendb.db");
     return await openDatabase(dbpath,version: 1,onCreate: (db,version){
-      return db.execute("create table $note($note_id integer primary key autoincrement $note_title text , $note_desc text)");
+      return db.execute("Create table $note ( $note_id integer primary key autoincrement $note_title text , $note_desc text)");
     });
   }
   insertnotes(NoteModel noteModel)async{

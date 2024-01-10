@@ -53,16 +53,21 @@ class _AddNotesState extends State<AddNotes> {
             var desc = descController.text.toString();
             if(title=="" && desc==""){
               setState(() {
-                AlertDialog(
-                  title: Text("Warning"),
-                  content: Row(
-                    children: [
-                      TextButton(onPressed: (){
-                        Navigator.of(context).pop();
-                      }, child: Text("Ok"))
-                    ],
-                  ),
-                );
+                showDialog(context: context, builder: (BuildContext context){
+                  return AlertDialog(
+                    title: Text("Warning"),
+                    content: Text("Please file required fields"),
+                    actions: [
+                      Row(
+                        children: [
+                          TextButton(onPressed: (){
+                            Navigator.of(context).pop();
+                          }, child: Text("Ok"))
+                        ],
+                      ),
+                    ]
+                  );
+                });
               });
             }
             else{
